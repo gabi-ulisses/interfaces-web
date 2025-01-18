@@ -1,16 +1,3 @@
-/*function horaAtual(){
-        let hora = new Date().toLocaleTimeString();
-
-        console.log(hora);
-
-        document.cookie = "username=Ana";
-
-        document.getElementById("timer").textContent = `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
-}
-
-setInterval(horaAtual, 1000);*/
-
-
 // Função para pegar o valor do cookie
 function pegarCookie(nome) {
     let cookiesDecodificados = decodeURIComponent(document.cookie);
@@ -29,17 +16,21 @@ function definirCookie(nome, valor) {
     document.cookie = nome + "=" + valor + ";path=/"; // Define o cookie sem expiração
 }
 
+// Função para deletar o cookie
+function deletarCookie(nome) {
+    document.cookie = nome + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Define o cookie com expiração no passado
+}
+
 // Função para atualizar o cronômetro
 function atualizarContagem() {
     // Recupera o tempo restante do cookie (se existir)
     let tempoRestante = pegarCookie("tempoRestante");
 
     if (!tempoRestante) {
-        // Se não houver cookie, define um tempo aleatório entre 8h e 12h (em milissegundos)
-        let tempoAleatorio = Math.floor(Math.random() * (12 - 8 + 1) + 8); // Aleatório entre 8 e 12 horas
-        let tempoEmMilissegundos = tempoAleatorio * 60 * 60 * 1000; // Convertido para milissegundos
-        definirCookie("tempoRestante", tempoEmMilissegundos); // Salva no cookie
-        tempoRestante = tempoEmMilissegundos; // Usa o valor do tempo aleatório gerado
+        // Define um tempo fixo de 2 minutos (em milissegundos)
+        let tempoFixo = 2 * 60 * 1000; // 2 minutos convertidos para milissegundos
+        definirCookie("tempoRestante", tempoFixo); // Salva no cookie
+        tempoRestante = tempoFixo; // Usa o valor do tempo fixo definido
     } else {
         tempoRestante = parseInt(tempoRestante); // Converte o tempo em número
 
@@ -49,21 +40,9 @@ function atualizarContagem() {
         const segundos = Math.floor((tempoRestante % (1000 * 60)) / 1000);
 
         // Formatação usando if para garantir dois dígitos
-        let horasFormatadas = horas;
-        let minutosFormatados = minutos;
-        let segundosFormatados = segundos;
-
-        if (horas < 10) {
-            horasFormatadas = '0' + horas;
-        }
-
-        if (minutos < 10) {
-            minutosFormatados = '0' + minutos;
-        }
-
-        if (segundos < 10) {
-            segundosFormatados = '0' + segundos;
-        }
+        let horasFormatadas = horas < 2 ? '0' + horas : horas;
+        let minutosFormatados = minutos < 2? '0' + minutos : minutos;
+        let segundosFormatados = segundos < 2 ? '0' + segundos : segundos;
 
         // Atualiza o cronômetro na div com o formato hh:mm:ss
         document.getElementById("timer").textContent = horasFormatadas + ':' + minutosFormatados + ':' + segundosFormatados;
@@ -76,6 +55,11 @@ function atualizarContagem() {
     }
 }
 
+// Função para resetar o cronômetro
+function resetarCronometro() {
+    deletarCookie("tempoRestante"); // Deleta o cookie existente
+    atualizarContagem(); // Atualiza o cronômetro
+}
 
 // Chama a função a cada 1 segundo
 setInterval(atualizarContagem, 1000);
