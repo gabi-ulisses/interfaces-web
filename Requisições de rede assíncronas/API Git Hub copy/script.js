@@ -1,6 +1,5 @@
-/*async function buscar(date) {
+async function buscar(date) {
     const url = `https://api.nasa.gov/planetary/apod?api_key=yax5hrTcj9uVgTX3NpWwoE2T3pQPFQ2b2OCZbvfv&date=${date}`;
-// https://api.nasa.gov/planetary/apod?api_key=yax5hrTcj9uVgTX3NpWwoE2T3pQPFQ2b2OCZbvfv&date=2025-01-17
     let response = await fetch(url);
 
     if (response.ok) {
@@ -9,14 +8,14 @@
         let explicacao = document.querySelector('#explicacao');
         explicacao.textContent = data['explanation'];
 
+        let title = document.querySelector('#title');
+        title.textContent = data['title'];
+        
         let img = document.querySelector('#image');
         img.src = data['hdurl'];
     } else {
         alert('Erro ao buscar imagem');
     }
-
-    let urlP = document.querySelector('#url');
-    urlP.href = data['html_url'];
 }
 
 function main() {
@@ -28,8 +27,8 @@ function main() {
     });
 }
 
-main();*/
-
+main();
+/*
 async function buscar(date) {
     const url = `https://api.nasa.gov/planetary/apod?api_key=yax5hrTcj9uVgTX3NpWwoE2T3pQPFQ2b2OCZbvfv&date=${date}`;
 
@@ -80,4 +79,4 @@ function main() {
 }
 
 main();
-
+*/

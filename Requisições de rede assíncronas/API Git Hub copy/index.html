@@ -5,22 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu GitHub</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <script src="script.js" defer></script>
 </head>
-<header>
-    <h1>NASA</h1>
-</header>
-<body>
-    <p>
-        <label for="date">Buscar imagem em:</label>
-        <input type="date" name="date" id="date">
-        <button id="buscar">Buscar</button>
-    </p>
-    <div id="dados">
-        <img id="image" src="" alt="" >
+    <header>
+        <h1>🌌</h1>
+    </header>
+    <body>   
+        <section class="section">
+            <p>
+                <label for="date">Buscar imagem em:</label>
+                <input type="date"  name="date" id="date">
+                <button id="buscar" class="button">Buscar</button>
+            </p>
+        </section>
 
-        <p id="explicacao"></p>
-    </div>
-    
+        <section class="section">
+            <div class="card" style="max-width: 600px; margin: auto;">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img id="image" src="" alt="Imagem do universo" />
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p id="title" class="title is-4" style="margin: 0;">John Smith</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p id="explicacao"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
 </body>
 </html>
