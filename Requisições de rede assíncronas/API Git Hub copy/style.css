@@ -1,83 +1,12 @@
-/*img{
-    width: 5%;
-}
-
-header{
-    margin-top: 100px;
-}
 
 body{
-    font-family:'Courier New', Courier, monospace;
-    margin: auto !important;
-    background-color: #000000;
- }
- 
- h1{
-     color: #869aac;
- }
- 
- input[type='text']{
-     width: 200px;
-     height: 30px;
-     font-size: 20px;
-     border-radius: 10px;
- }
- 
- label{
-     font-size: 25px;
-     color: #869aac;
-     font-weight: 800;
- }
- 
- button{
-     font-size: 20px;
- }
-
- #dados{
-    background-color: #41414100;
-    color: #ffffff;
-    padding: 10px;
-    height: 200px;
-    width: 300px;
-    border-radius: 20px;
-    margin: auto;
-    margin-top: 50px;
- }
-
-#dados img{
-    border-radius: 100px;
-    border: 0.5px solid #313030;
-    width: 100%;
-    background-repeat: no-repeat;
- }
-
- #dados p{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 800;
-    color: #dfdfdf;
- }
-
- #repos{
-    margin: 0;
- }
-.card{
-    margin: 50px;
-    height: 500px !important;
-}
-
-.media{
-    height: 100vh !important;
-}
-
-*/
-
-body{
-    padding-bottom: 80px !important;
+    padding-bottom: 200px !important;
     background-color: #141414;
+    background-image: url("fundo.jpg");
+    background-size: cover;
 }
 
-header, section{
-    text-align: center !important;
+ section{
     padding-bottom: 0px !important;
 }
 
@@ -86,11 +15,15 @@ header{
     font-size: 50px;
 }
 
-/* Limitar a largura do card e centralizar */
+/* Limitar a largura do card */
 .card {
-    max-width: 600px;
-    margin: auto;
+    width: 900px !important;
+    right: 25%;
     background-color: #0f0f0f !important;
+}
+
+.card img{
+    width: 50%;
 }
 
 /* Ajuste para margens entre título e subtítulo */
@@ -110,7 +43,7 @@ input[type='date']{
     border-radius: 4px;
     background-image: url("stars.jpg");
     background-size: cover;
-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 input[type="date"]:focus {
@@ -122,4 +55,14 @@ input[type="date"]:focus {
 #explicacao{
     text-align: left;
     color: aliceblue;
+}
+
+#title{
+    color: aliceblue;
+}
+
+label{
+    color: #172d41;
+    font-weight: 800;
+    font-size: 25px
 }
